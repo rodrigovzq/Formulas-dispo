@@ -1,0 +1,405 @@
+%-----------------------------------------------------------
+% Dispositivos Semiconductores
+% Plantilla para Hoja de fórmulas
+% Autor: Federico G. Zacchigna
+% fecha de realizacion: Oct/18
+% Revisado por: Sebastián Carbonetto
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+% Este documento está pensado para ser compilado con pdfLatex.
+% En caso de querer compilarlo con Latex, se deberá modificar
+% el manejor de imágenes del documento.
+%-----------------------------------------------------------
+
+
+%-----------------------------------------------------------
+% defino el formato del documento
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish, es-noshorthands]{babel}
+\usepackage[a4paper]{geometry}%
+\geometry{
+  a4paper,
+  left       =10mm,
+  right      =10mm,
+  top        =25mm,
+  bottom     =10mm,
+  headheight =10mm
+}
+%-----------------------------------------------------------
+
+
+%-----------------------------------------------------------
+% paquetes matemáticos básicos
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%-----------------------------------------------------------
+
+
+%-----------------------------------------------------------
+% gráficos (las imágenes del encabezado son png: se compila con pdflatex)
+\usepackage[pdftex]{graphicx}
+\graphicspath{{./files/}{./figures/}{./}}
+%-----------------------------------------------------------
+
+
+%-----------------------------------------------------------
+\usepackage{fancyhdr}		% formato de página
+\usepackage{multicol}
+%-----------------------------------------------------------
+
+
+%-----------------------------------------------------------
+% defino algunas unidades que se utilizan
+\newcommand{\cmmenostres}{\mathrm{cm}^{-3}}
+\newcommand{\volt}{\mathrm{V}}
+\newcommand{\kilovolt}{\mathrm{kV}}
+\newcommand{\milivolt}{\mathrm{mV}}
+\newcommand{\amper}{\mathrm{A}}
+\newcommand{\miliamper}{\mathrm{mA}}
+\newcommand{\microamper}{\mu\mathrm{A}}
+\newcommand{\nanoamper}{\mathrm{nA}}
+\newcommand{\ohm}{\Omega}
+\newcommand{\kiloohm}{\mathrm{k}\Omega}
+\newcommand{\megaohm}{\mathrm{M}\Omega}
+\newcommand{\milisiemens}{\mathrm{mS}}
+\newcommand{\segundo}{\mathrm{s}}
+\newcommand{\milisegundo}{\mathrm{ms}}
+\newcommand{\nanosegundo}{\mathrm{ns}}
+\newcommand{\picosegundo}{\mathrm{ps}}
+\newcommand{\kelvin}{\mathrm{K}}
+\newcommand{\gradocentigrado}{^{\circ}\mathrm{C}}
+\newcommand{\watt}{\mathrm{W}}
+\newcommand{\kilowatt}{\mathrm{kW}}
+\newcommand{\centimetro}{\mathrm{cm}}
+\newcommand{\milimetro}{\mathrm{mm}}
+\newcommand{\micrometro}{\mu\mathrm{m}}
+\newcommand{\nanometro}{\mathrm{nm}}
+\newcommand{\faradio}{\mathrm{F}}
+\newcommand{\milifaradio}{\mathrm{mF}}
+\newcommand{\nanofaradio}{\mathrm{nF}}
+\newcommand{\picofaradio}{\mathrm{pF}}
+\newcommand{\femtofaradio}{\mathrm{fF}}
+\newcommand{\hertz}{\mathrm{Hz}}
+\newcommand{\kilohertz}{\mathrm{kHz}}
+\newcommand{\kilogramo}{\mathrm{kg}}
+%-----------------------------------------------------------
+
+
+%-----------------------------------------------------------
+% defino la Caja de ecuaciones
+\newsavebox{\ecuacionesbox}
+\newenvironment{ecuaciones}[1]{
+  \noindent
+  \begin{lrbox}{\ecuacionesbox}
+  \begin{minipage}{\linewidth}\ignorespaces
+  {\footnotesize\textbf{#1:}}
+} {
+  \end{minipage}
+  \end{lrbox}%
+  \makebox[\linewidth]{%
+  \fbox{\usebox{\ecuacionesbox}}%
+  }
+  \par
+  \vspace{0.5mm}
+}
+%-----------------------------------------------------------
+
+
+%-----------------------------------------------------------
+% defino los espaciados de manera compacta
+\setlength{\parskip}{3mm}
+\setlength{\baselineskip}{1mm}
+\setlength{\topskip}{2mm}
+\setlength{\parindent}{0mm}
+\setlength{\multicolsep}{2mm}
+\setlength{\columnsep}{4mm}
+%-----------------------------------------------------------
+
+
+%-----------------------------------------------------------
+% defino el formato del encabezado
+\pagestyle{fancy}
+\lhead{\includegraphics[height=1.5cm]{lhead}}
+\chead{
+  {\scshape Dispositivos Semiconductores} \\
+  \vspace{2mm}
+  {\large \textbf{Hoja de Formulas}}
+  \vspace{1mm}  \\
+  {Rodrigo Vazquez 98934}
+}
+
+\lfoot{} \cfoot{} \rfoot{}
+%-----------------------------------------------------------
+
+
+\begin{document}
+
+  %-------------------------------------------------
+  \begin{ecuaciones}{Constantes}
+    $\varepsilon_0=8.85\times10^{-12}\,\mathrm{F}/\mathrm{m}$, \ 
+    $\varepsilon_r{Si}=11.7$, \ 
+    $\varepsilon_r_{SiO_2}=3.9$, \ 
+    $n_i=10^{10}\,\cmmenostres$, \ 
+    $q=1.6 \times10^{-19} \mathrm{C}$,\
+    $k=1.38 \times10^{-23}\mathrm{J}$,\
+    $m_0=9.1 \times10^{-31} \mathrm{kg}$,
+    
+    %$\phi(n,p=n_i)=0$.
+  \end{ecuaciones}
+  %-------------------------------------------------
+
+
+  %-------------------------------------------------
+ % \begin{multicols}{2}
+    \begin{ecuaciones}{Transporte de carga}
+    $
+    J_{n,p}=J_{n,p}^{arr} + J_{n,p}^{diff} = q \ (n,p) \ \mu_{n,p} \ E + q \ D_{n,p} \ \frac{\delta (n,p)}{\delta x}$, \ 
+    
+    $ \frac{D}{\mu} = \frac{k \ T}{q}
+    $, \
+     % $k= q Q_n v  $, \
+  $ I = q\ N\ v
+  $, \
+  $\mu_{n,p}=\frac{ q . \tau_C  }{m^*_n,p}$,\
+  
+  $ \rho= \frac{1}{q(\mu_n . N_D) + \mu_p . N_A}$,\
+  
+  $v_{arr}=\pm \frac{q. \tau_C}{m_{n,p}.E}$,\
+  
+    %{Número $\pi$}
+     % $ \pi =
+       % \textstyle \cfrac{4}{1+\textstyle
+       % \cfrac{1^2}{2+\textstyle
+       % \cfrac{3^2}{2+\textstyle
+       % \cfrac{5^2}{2+\textstyle
+       % \cfrac{7^2}{2+\textstyle
+       % \cfrac{9^2}{2+\dots}}}}}}
+      %$
+    \end{ecuaciones}
+    %-------------------------------------------------
+    \begin{ecuaciones}{Electroestatica de SC}
+    $(n_0 , p_0) = n_i \ e^{(+,-)\ \frac{\phi_{n,p} \ q}{k \ t}}$, \ 
+    $\phi_b = \phi_n - \phi_p
+    $
+     
+     
+      %$\mathbb{C}_\mathbf{X} = \mathbb{E}[\mathbf{X}\,\mathbf{X}^T]$
+    \end{ecuaciones}
+    %-------------------------------------------------
+    \begin{ecuaciones}{Juntura PN}
+   
+    $x_{n_0 , p_0} = \sqrt{\frac{2 \ \epsilon_{Si} \ \phi_B \ N_{A,D} }{q \ (N_A + N_D) \ N_{D,A}}}
+    $, \ 
+    $x_{d_0}= \sqrt{\frac{2 \ \epsilon_{Si} \ \phi_B \ (N_A + N_D) }{q. N_A . N_D  }}$\
+    
+    $x_{n,p}= x_{n_0,p_0}. \sqrt{1-\frac{V}{\phi_B}} $\
+    
+ 
+    
+    
+    $|E_0| = \sqrt{\frac{2\ q \ \phi_B \ N_A \ N_A }{\epsilon_{Si} \ (N_A + N_A)}}
+    $, \ 
+    $|E|= |E_0| . \sqrt{1-\frac{V}{\phi_B}}$,
+    $|E_{MAX}|=\sqrt{\frac{2q.(\phi_B - V)N_A . N_D}{\epsilon_{Si}(N_A + N_D)}}| $,
+    $ C_j' =  \frac{C_{j_o}'}{\ \sqrt{1-\frac{V}{\phi_B}}}
+    $, \ 
+    $C_{j_o}' = \sqrt{\frac{ q \ \epsilon_{Si} \ N_a \ N_d }{2 \ \phi_B  \ (N_a + N_d)}}
+    $,\
+    $\phi_B = \frac{k.T}{q} \ln{\frac{N_A .N_D}{n_i^{2}}}
+    $,\
+     $\phi_P = -\frac{k.T}{q} \ln{\frac{N_A}{n_i}}$
+    %{Otras}
+     % $
+      %  \mathop{\int}_{\mathcal{R}}
+       % \mathbf{(x-\mu)}\,\mathbf{(x-\mu)^T} \, f_X(\mathbf{x})
+        %\,d\mathbf{x}
+      %$
+      %\hspace{3mm}
+      %$ A \overset{!}{=} B; A \stackrel{!}{=} B $
+      %\hspace{3mm}
+      %$ A \overset{!}{=} B; A \stackrel{!}{=} B $
+      %\hspace{3mm}
+      %$ A \overset{!}{=} B; A \stackrel{!}{=} B $
+      %\hspace{3mm}
+      %\newline
+      %$
+      % \lim_{x\to 0}{\frac{e^x-1}{2x}}
+      % \overset{\left[\frac{0}{0}\right]}{\underset{\mathrm{H}}{=}}
+      % \lim_{x\to 0}{\frac{e^x}{2}}={\frac{1}{2}}
+      %$
+      %\hspace{3mm}
+      %$ A \overset{!}{=} B; A \stackrel{!}{=} B $
+    \end{ecuaciones}
+%  \end{multicols}
+  %-------------------------------------------------
+
+
+  %-------------------------------------------------
+  \begin{ecuaciones}{Diodo PN}
+  $\bigg( n(-x_p),p(x_n) \bigg) = \frac{n_i^2}{N_{a,d}} \ e^{\frac{V \ q}{k  T}}
+  $, \ 
+  $I = I_0 (e^{\frac{V \ q}{k  T}} - 1 )
+  $, \ 
+  $I_0 = q \ A \ n_i^2 \left(\frac{1}{N_a} \frac{D_n}{W_p-x_p} + \frac{1}{N_d} \frac{D_p}{W_n-x_n} \right)
+  $, \ 
+  $\newline C_{d_{n,p}, \pi } = {\frac{q}{k  T}}  \tau_{T_{(p,n)}} I_{(p,n), C}
+  $, \ 
+  $ \tau_{T_{p,n}} = \frac{(W_{n,p}-x_{n,p})^2}{2\ D_{p,n}}
+  $,\
+  $C_D = \frac{I_D + I_0}{V_TH}. \tau$
+  %{Símbolos}
+   % $ {\displaystyle \sum \,} \sum $
+    %$ {\displaystyle \prod } \prod $
+    %$ {\displaystyle \coprod } \coprod $
+    %$ {\displaystyle \bigoplus } \bigoplus $
+    %$ {\displaystyle \bigotimes } \bigotimes $
+    %$ {\displaystyle \bigodot } \bigodot$
+    %$ {\displaystyle \bigcup } \bigcup $
+    %$ {\displaystyle \bigcap } \bigcap $
+    %$ {\displaystyle \biguplus } \biguplus$
+    %$ {\displaystyle \bigsqcup } \bigsqcup $
+    %$ {\displaystyle \bigvee } \bigvee $
+    %$ {\displaystyle \bigwedge } \bigwedge$
+    %$ {\displaystyle \int } \int $
+    %$ {\displaystyle \oint } \oint $
+    %$ {\displaystyle \iint } \iint $
+    %$ {\displaystyle \iiint } \iiint $
+    %$ {\displaystyle \iiiint } \iiiint $
+  \end{ecuaciones}
+  \begin{ecuaciones}{ MOS}
+  $\gamma = \frac{1}{C'_{OC}} \sqrt{2 \epsilon_{Si} q N_a}
+  $, \ 
+  $x_d = \frac{\epsilon_{Si}}{C'_{OX}} \left[ \sqrt{1+\frac{4 (\phi_B + V_{GB})}{\gamma^2}}-1 \right]
+  $, \ 
+  $x_d_{max} =\sqrt{\frac{2 \epsilon_Si (-2 \phi_p)}{q N_A}} $
+  $\Delta V_{BULK} = \frac{q \ N_a \ x_d^2}{2 \ \epsilon_{Si}}
+  $, \ 
+  $\newline \Delta V_{OX} = \frac{q \ N_a \ x_d t_{ox}}{\epsilon_{SiO_2}}
+  $, \ 
+  $C_{OX}' = \frac{\epsilon_{SiO_2}}{t_{ox}}
+  $, \ 
+  $ V_T = V_{FB} - 2 \ \phi_{p,n} + \gamma \sqrt{-2\phi_{p,n}}
+  $, \  
+  $ |Q_n| = C'_{OX} (V_{GB} -V_T)
+  $
+  %{Otras}
+   % $\hat{T} = \widehat{T}$, \ 
+   % $\bar{T} = \overline{T}$, \  $\widetilde{xyz}$, \ 
+   % $\overbrace{a+\underbrace{b+c}+d}$
+  \end{ecuaciones}
+  %-------------------------------------------------
+  \begin{ecuaciones}{MOSFET}
+  $ V_T (V_{BS}) = V_{T_0} + \gamma \left( \sqrt{-2\phi_p -V_{BS}}-\sqrt{-2 \phi_p} \right)
+  $, \ 
+  $V_{FB} = -\phi_B = \phi_P - \phi_{N^+} = \phi_{SUST} - \phi_{POLY}
+  $, \ 
+  $I_D = \mu \ C'_{OX} \ \frac{W}{L} \left( V_{GS} - V_T - \frac{V_{DS}}{2} \right) V_{DS}
+  $, \ 
+  $I_D = \frac{\mu C'_{OX} }{2} \ \frac{W}{L} \left( V_{GS} - V_T \right)^2 \left[ 1 + \lambda (V_{DS}-V_{{DS}_SAT} ) \right]
+  $, \ 
+  $\newline g_m = \frac{W}{L} \mu C'_{OX} (V_{GS} - V_T)
+  $, \ 
+  $g_0 = \frac{\delta i_D}{\delta v_{DS}} |_Q = I_D \lambda
+  $, \ 
+  $C_{gs} = \frac{2}{3} \ W \ L \ C_{OX}' 
+  $, \ \\ 
+  $v_{gs} <0.2 (V_{GS}-V_T) 
+  $, \   
+  $g_{mb} = \frac{\delta I_D}{\delta V_{BS}} |_Q  = g_m \frac{\gamma}{2 \sqrt{-2 \ \phi_p - V_{BS}}}
+  $, \ 
+  \\
+  $I_D = - I_y = - V Q_n(y) v_y(y)
+  $, \
+  $ v_y(y) \approx \mu_n E_y(y) = \mu_n \frac{d V_c(y)}{dy}
+  $, \
+    $
+  $, \
+  %{Letras griegas}
+   % $\alpha, A, \beta, B, \gamma, \Gamma, \pi, \Pi, \phi, \varphi, \mu, \Phi$
+  \end{ecuaciones}
+  
+
+  %-------------------------------------------------
+
+
+  %-------------------------------------------------
+
+    \begin{ecuaciones}{TBJ}
+    $\beta_F = \frac{N_{dE} D_n W_E}{N_{aB} D_p W_B}
+	$, \   
+	$I_S = q A_E \frac{D_n}{W_B} n_{BO}
+	$, \ 
+	$ I_C =  I_S \  e^{ \frac{q V_{BE} }{ k T }}  \left( 1+ \frac{V_{CE}-V_{{CE}_{SAT}}}{V_A} \right)
+	$, \ 
+	$I_B = \frac{I_S}{\beta_F} ( e^{\frac{q V_{BE} }{kT}} - 1)
+	$, \ 
+	$\newline g_m = \frac{\delta i_C}{\delta v_{BE}} |_Q = \frac{I_{{C}_Q}}{V_{th}}
+	$, \ 
+	$g_\pi = \frac{\delta i_B}{\delta v_{BE}} |_Q = \frac{g_m}{\beta} = \frac{1}{\beta r_d}
+	$, \ 
+	$g_0 = \frac{1}{r_0} = \frac{\delta i_C (v_{BE},v_{CE})}{\delta v_{CE}} |_{V_{BE}, V_{CE}} = \frac{I_{CQ}}{V_A} 
+	$, \ 
+	$r_\mu = \left[ \frac{\delta i_B}{ \delta v_{DC}}  \right]^{-1} = \beta r_0 = \beta \frac{V_A}{I_{CQ}}
+	$, \ 
+	$C_\mu \approx C_{j_{BC}} = \frac{C_{j_{BC_0}}}{\sqrt{1+\frac{V_{BC}}{\phi_B}}}
+	$
+  
+    %{Matemática}
+     % $
+      %  \mathop{\int \!\!\! \int}_{\mathbf{x} \in \mathbb{R}^2}
+       % \! \langle \mathbf{x},\mathbf{y}\rangle
+        %\,d\mathbf{x}
+     % $
+    \end{ecuaciones}
+    %-------------------------------------------------
+    \begin{ecuaciones}{JFET}
+    $I_{D_{SAT}} = I_{DSS} (1-\frac{V_G}{V_P})^2 (1+ \lambda (V_DS - V_{{DS}_{SAT}})) 
+    $, \ 
+      $I_{D_{triodo}} = 2 \frac{I_DSS}{V_P^2}  (V_G - V_P - \frac{V_DS}{2}) V_DS
+    $, \ 
+    $ r_0 = \frac{1}{\lambda I_D^Q}$ \ 
+    $ g_m = \frac{-2 I_{DSS}}{V_P} (1-\frac{V_{GS}}{V_P})$
+    %{Maxwell's equations}
+     % \begin{subequations}
+      %  \begin{align}
+       %   B'&=-\nabla \times E,\\
+        %  E'&=\nabla \times B - 4\pi j,
+        %\end{align}
+      %\end{subequations}
+    \end{ecuaciones}
+    %-------------------------------------------------
+    \begin{ecuaciones}{Zener}
+    $ R_{min} = \frac{V_{N R,max}-V_{Z}}{I_{L,min} + I_{Z,max}}
+  $, \
+    $R_{maz} = \frac{V_{N R,min}-V_{Z}}{I_{L,max} + I_{Z,min}}
+  $, \
+    %{Probabilidad}
+     % \newline $\frac{n!}{k!(n-k)!} = \binom{n}{k}$
+      %\newline $ \mathbb{P}(A | B) = \frac{ \mathbb{P}(A \cup B) }{ \mathbb{P}(B) } $
+    \end{ecuaciones}
+    %\begin{ecuaciones}{Símbolos}
+     % $ {\displaystyle \sum \,} \sum $
+      %$ {\displaystyle \prod } \prod $
+      %$ {\displaystyle \coprod } \coprod $
+      %$ {\displaystyle \bigoplus } \bigoplus $
+      %$ {\displaystyle \bigotimes } \bigotimes $
+      %$ {\displaystyle \bigodot } \bigodot$
+      %$ {\displaystyle \bigcup } \bigcup $
+      %$ {\displaystyle \bigcap } \bigcap $
+      %$ {\displaystyle \biguplus } \biguplus$
+      %$ {\displaystyle \bigsqcup } \bigsqcup $
+      %$ {\displaystyle \bigvee } \bigvee $
+      %$ {\displaystyle \bigwedge } \bigwedge$
+      %$ {\displaystyle \int } \int $
+      %$ {\displaystyle \oint } \oint $
+      %$ {\displaystyle \iint } \iint $
+      %$ {\displaystyle \iiint } \iiint $
+      %$ {\displaystyle \iiiint } \iiiint $
+    %\end{ecuaciones}
+  %-------------------------------------------------
+
+
+\end{document}
